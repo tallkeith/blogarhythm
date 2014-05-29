@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140529144504) do
 
   create_table "providers", force: true do |t|
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 20140529144504) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+=======
+ActiveRecord::Schema.define(version: 20140529142938) do
+>>>>>>> b038a8bcb6a56aadcd4173317f8d1f0f0433b990
 
   create_table "timelines", force: true do |t|
     t.integer  "user_id"
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140529144504) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -40,4 +45,6 @@ ActiveRecord::Schema.define(version: 20140529144504) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> b038a8bcb6a56aadcd4173317f8d1f0f0433b990
 end
