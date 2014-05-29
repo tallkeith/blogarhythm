@@ -8,9 +8,10 @@
 </head>
 <body>
 <%if current_user%>
-Signed in as <%= current_user.name %>
+Signed in as <%= current_user.name %> <%=link_to "Sign Out", signout_path%>
 <%else%>
-<%= link_to "Sign in with twitter", "auth/twitter"%>
+<%= link_to "Sign in with Twitter", "auth/twitter", id: "sign_in"%>
+<%= link_to "Sign in with Facebook", "auth/facebook", id: "sign_in"%>
 <%end%>
 <%= yield %>
 
