@@ -1,2 +1,7 @@
 <h1>Welcome#home</h1>
 <p>Find me in app/views/welcome/home.html.erb</p>
+<%if current_user%>
+Signed in as <%= current_user.name %>
+<%else%>
+<%= link_to "Sign in with twitter", "auth/twitter"%>
+<%end%>
