@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'welcome/home'
 
   get 'welcome/about'
+  match 'auth/:provider/callback', to: 'sessions#create', :via => [:get]
 
   resources :timelines
 
