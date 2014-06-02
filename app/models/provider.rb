@@ -1,28 +1,17 @@
 class Provider < ActiveRecord::Base
 	has_many :providers
 
-	def self.create_with_omniauth(auth)
-		user = create(name: auth['name'])
-		if user.save == true
-			 print "***********************************************************"
-			 print user.name #name isnt saving for some reason?
-			 print"************************************************************"
-			end	
-		return user
+	def self.associate_facebook(auth,user)
+		provider = create(user_id: user['id'], service: auth['provider'], uid: auth['uid'], oauth_token: auth['credentials.token'])
+		      puts "***********************************************"
+		  	  print provider.service
+		  	  puts "***********************************************"
 	end
 
-	def self.get_provider(auth,user)
-		service = ""
-		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |p|
-			service = p.provider
-		end
-
-		if service == "facebook"
-			Provider.associate_facebook(auth,user)
-		end
-
-		if service == "twitter"
-			Provider.associate_twitter(auth,user)
-		end
-	end
+	def self.associate_twitter(auth,user)
+		provider = create(user_id: user['id'], service: auth['provider'], uid: auth['uid'], oauth_token: auth['credentails.token'])
+			puts "***********************************************"
+		  	print provider.service
+		  	puts "***********************************************"
+	end	
 end

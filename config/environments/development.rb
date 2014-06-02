@@ -44,5 +44,5 @@ Rails.application.configure do
     password:             'fghjkl;',
     authentication:       'plain',
     enable_starttls_auto: true }
-  
+
 end
