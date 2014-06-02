@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+
 	def create
   	if signed_in?
   		User.get_provider(env["omniauth.auth"],@current_user)
@@ -10,7 +11,10 @@ class SessionsController < ApplicationController
 	    User.get_provider(env["omniauth.auth"],user)
 	    redirect_to root_url
 	end
-  end
+
+	
+
+  
 
   def destroy
     session[:user_id] = nil
