@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_many :providers
 
 	def self.create_with_omniauth(auth)
@@ -31,5 +30,7 @@ class User < ActiveRecord::Base
   		UserMailer.welcome_email(self).deliver
   	end
 
-  	
+
 end
+
+

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602145528) do
+
+ActiveRecord::Schema.define(version: 20140602144426) do
+
+
 
   create_table "providers", force: true do |t|
     t.string   "uid"

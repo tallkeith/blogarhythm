@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'bcrypt-ruby','~> 3.0.0'
+gem 'omniauth-identity'
 gem 'omniauth-twitter','~>1.0.1'
 gem 'omniauth'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
