@@ -1,1 +1,18 @@
-account_management.html.erb
+<h1>This is the Account management page. We will add some things here, such as:</h1>
+
+<ul>
+	<li>Radial button for Facebook</li>
+	<li>Radial button for Twitter</li>
+	<li>Radial button for Instagram</li>
+	<li>Email address field</li>
+	<li>password field</li>
+	<li>create new user link</li>
+</ul>
+
+
+<%if current_user%>
+Signed in as <%= current_user.name %> <%=link_to "Sign Out", signout_path%>
+<%else%>
+<%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in"%> |
+<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"%>
+<%end%>
