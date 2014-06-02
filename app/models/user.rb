@@ -8,4 +8,8 @@ def self.from_omniauth(auth)
          user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       	 user.save!
       end
+
+    def send_welcome_email
+  		UserMailer.welcome_email(self).deliver
+  	end
   end
