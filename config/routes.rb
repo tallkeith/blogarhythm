@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   get 'welcome/home'
 
   get 'welcome/about'
-  match 'auth/:provider/callback', to: 'sessions#create', :via => [:get], :as => :signin
-  match "/signout" => "sessions#destroy", :via =>[:get], :as => :signout
+  
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
 
   resources :timelines
