@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.nil? ? user : user.id
   end
   
+  def facebook(auth)
+    @facebook ||= Koala::Facebook::API.new(auth.credentials.token)
+    puts "***********************************************"
+    print @facebook
+  end 
 end
 
 

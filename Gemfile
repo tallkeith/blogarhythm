@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'omniauth-facebook'
-
+gem 'koala'
 gem 'omniauth-instagram'
 
 # Use ActiveModel has_secure_password
