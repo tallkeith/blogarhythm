@@ -1,5 +1,5 @@
 class Provider < ActiveRecord::Base
-	has_many :providers
+	belongs_to :user
 
 	def self.associate_facebook(auth,user)
 		provider = create(user_id: user.id, service: auth.provider, uid: auth.uid, oauth_token: auth.credentials.token, oauth_expires_at: auth.credentials.expires_at)
@@ -16,10 +16,9 @@ class Provider < ActiveRecord::Base
 		  	puts "***********************************************"
 	end
 
-	def self.facebook(auth)
-		#this needs to be changed, maybe add a fb column to USER to store the object?
-		@facebook ||= Koala::Facebook::API.new(auth.credentials.token)
+	def self.facebook
+		facebook ||= Koala::Facebook::API.new(auth.credentials.token)
 		puts "***********************************************"
-		print @facebook
+		print facebook
 	end	
 end

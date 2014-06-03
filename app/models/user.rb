@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 		user = create(name: auth.info.name)
 		if user.save == true
 			 print "***********************************************************"
-			 print user.name #name isnt saving for some reason?
+			 print user.name
 			 print"************************************************************"
 			end	
 		return user
