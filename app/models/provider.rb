@@ -6,7 +6,6 @@ class Provider < ActiveRecord::Base
 		      puts "***********************************************"
 		  	  print provider.service
 		  	  puts "***********************************************"
-		facebook(auth)
 	end
 
 	def self.associate_twitter(auth,user)
@@ -16,9 +15,5 @@ class Provider < ActiveRecord::Base
 		  	puts "***********************************************"
 	end
 
-	def self.facebook(auth)
-		facebook ||= Koala::Facebook::API.new(auth)
-		puts "***********************************************"
-		print facebook
-	end	
+	
 end
