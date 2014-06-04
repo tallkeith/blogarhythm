@@ -1,36 +1,17 @@
 class User < ActiveRecord::Base
-	has_many :providers
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, 
+         :recoverable, :rememberable, :trackable, :validatable
+  has_many :providers
 
-	def self.create_with_omniauth(auth)
-		user = create(name: auth.info.name)
-		if user.save == true
-			 print "***********************************************************"
-			 print user.name
-			 print"************************************************************"
-			end	
-		return user
-	end
+         def self.get_provider(auth,user)
 
-	def self.get_provider(auth,user)
-		service = ""
-		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |p|
-			service = p.provider
+			if auth.provider == "facebook"
+				Provider.associate_facebook(auth,user)
+				
+			elsif auth.provider == "twitter"
+				Provider.associate_twitter(auth,user)
+			end
 		end
-
-		if service == "facebook"
-			Provider.associate_facebook(auth,user)
-		end
-
-		if service == "twitter"
-			Provider.associate_twitter(auth,user)
-		end
-	end
-
-    def send_welcome_email
-  		UserMailer.welcome_email(self).deliver
-  	end
-
-
 end
-
-

@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blogarhythm</title>
+  <title>Blogarhythmv3</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<body>
+<div class="header">
 
-<nav>
-<div class="navbar navbar-inverse">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Blogarhythm</a>
-  </div>
-  <div class="navbar-collapse collapse navbar-inverse-collapse">
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="http://0.0.0.0:3000">Home</a></li>
-      <li><%= link_to "About", welcome_about_path%></li>
-      <li><%= link_to "Timelines", timelines_path%></li>
-      <li><%= link_to "Account", welcome_account_management_path%></li>
+  <% if user_signed_in? %>
 
-    </ul>
-       <form class="navbar-form navbar-left">
-      <input type="text" class="form-control col-lg-8" placeholder="Search">
-  </div>
+  <%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %>
 
-</nav>
+  <% else %>
+
+  <%= link_to "Sign in",new_user_session_path %>
+
+  <% end %>
+
+ </div>
 
 <%= yield %>
-<body>
-
 
 </body>
 </html>

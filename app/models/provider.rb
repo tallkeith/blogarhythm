@@ -16,8 +16,8 @@ class Provider < ActiveRecord::Base
 		  	puts "***********************************************"
 	end
 
-	def self.facebook
-		facebook ||= Koala::Facebook::API.new(auth.credentials.token)
+	def self.facebook(auth)
+		facebook ||= Koala::Facebook::API.new(auth)
 		puts "***********************************************"
 		print facebook
 	end	
