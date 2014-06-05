@@ -25,9 +25,10 @@ your linked accounts are
 | <%= link_to "Link account with Twitter", "/auth/twitter" %> 
 <%#end%>
 <% auth = Provider.where(:service => 'facebook').first_or_initialize%>
+<% if auth.oauth_token !=nil%>
 <% @graph = Koala::Facebook::API.new(auth.oauth_token)%>
 <% pic = @graph.get_picture("me")%>
 <img src="<%=pic%>" alt="profile pic">
 <%end%>
-
+<%end%>
 
