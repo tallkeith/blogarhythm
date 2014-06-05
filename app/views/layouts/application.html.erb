@@ -27,11 +27,15 @@
        <li class="active"><a href="http://0.0.0.0:3000/timelines/index">Timeline</a>
       
       
-       <li><%= link_to "Sign in",new_user_session_path %></li>
+       
 
       <li><%= link_to "Account", welcome_account_management_path%></li>
       <li><%= link_to "Timelines", welcome_timelines_path%></li>
-      <li><%= link_to "Sign in",new_user_session_path %></li>
+      <li><% if user_signed_in? %>
+       <%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %>
+       <% else %>
+       <%= link_to "Sign in",new_user_session_path %>
+       <% end %></li>
 
 
     </ul>
@@ -40,19 +44,6 @@
 </nav>
 
 <body>
-<div class="header">
-
-  <% if user_signed_in? %>
-
-  <%= link_to "Sign out",destroy_user_session_path, method: :delete, class: "button" %>
-
-  <% else %>
-
-  <%= link_to "Sign in",new_user_session_path %>
-
-  <% end %>
-
- </div>
 
 <%= yield %>
 

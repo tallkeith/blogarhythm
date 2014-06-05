@@ -1,21 +1,18 @@
 <h1>Welcome to Blogarhythm!</h1>
-<p>What would you like to do? <br><br>
-	<%=link_to "Sign in with Facebook", welcome_account_management_path %><br>
-	<%=link_to "Sign in with Twitter", welcome_account_management_path %><br>
-	<%=link_to "Sign in with Instagram", welcome_account_management_path %><br>
-</p>
-		
-	
-<br>
-<br>
+<p>
+<%if current_user == nil %>
+Thanks for checking out our site please sign in or register to continue!
 
-<% if current_user %>
+<% elsif current_user %>
 <% smlist = [] %>
 <% current_user.providers.each do |p|%>
 	<% smlist << p.service%>
 <%end%>
 your linked accounts are
-<%=smlist%>
+<%=smlist%><br />
+What would you like to do? <br><br>
+	
+
 
 <% #if p.service == "facebook"%>
 	
@@ -30,5 +27,12 @@ your linked accounts are
 <% pic = @graph.get_picture("me")%>
 <img src="<%=pic%>" alt="profile pic">
 <%end%>
+
+</p>	
 <%end%>
+
+
+		
+	
+
 
