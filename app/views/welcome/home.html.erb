@@ -1,5 +1,13 @@
-<h1>Welcome#home</h1>
-<p>Find me in app/views/welcome/home.html.erb</p>
+<h1>Welcome to Blogarhythm!</h1>
+<p>What would you like to do? <br><br>
+	<%=link_to "Sign in with Facebook", welcome_account_management_path %><br>
+	<%=link_to "Sign in with Twitter", welcome_account_management_path %><br>
+	<%=link_to "Sign in with Instagram", welcome_account_management_path %><br>
+</p>
+		
+	
+<br>
+<br>
 
 <% if current_user %>
 <% smlist = [] %>
