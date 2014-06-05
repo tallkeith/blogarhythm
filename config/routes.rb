@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-  get 'timeline'=>'timelines#show'
+  get 'timelines/index'
+
+  get 'timelines/new'
 
   get 'welcome/home'
 

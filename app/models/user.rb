@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
   has_many :providers
+  has_many :timelines
 
          def self.get_provider(auth,user)
 
