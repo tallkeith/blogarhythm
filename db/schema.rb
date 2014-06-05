@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604150014) do
+ActiveRecord::Schema.define(version: 20140605012005) do
 
   create_table "providers", force: true do |t|
     t.string   "uid"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(version: 20140604150014) do
     t.string   "oauth_expires_at"
     t.string   "service"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timelines", force: true do |t|
+    t.string   "user"
+    t.string   "image_url"
+    t.date     "image_date"
+    t.string   "image_source"
+    t.integer  "likes"
+    t.integer  "shares"
+    t.integer  "retweets"
+    t.integer  "number_of_comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
