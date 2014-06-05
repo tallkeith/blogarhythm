@@ -6161,3 +6161,6 @@ a.thumbnail.active {
 	padding: 3 3 3 3;
 }
 
+li {
+	list-style: none;
+}
