@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @timeline.user %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @timeline.image_url %>
+</p>
+
+<p>
+  <strong>Image date:</strong>
+  <%= @timeline.image_date %>
+</p>
+
+<p>
+  <strong>Image source:</strong>
+  <%= @timeline.image_source %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @timeline.likes %>
+</p>
+
+<p>
+  <strong>Shares:</strong>
+  <%= @timeline.shares %>
+</p>
+
+<p>
+  <strong>Retweets:</strong>
+  <%= @timeline.retweets %>
+</p>
+
+<p>
+  <strong>Number of comments:</strong>
+  <%= @timeline.number_of_comments %>
+</p>
+
+<%= link_to 'Edit', edit_timeline_path(@timeline) %> |
+<%= link_to 'Back', timelines_path %>

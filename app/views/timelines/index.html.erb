@@ -1,0 +1,39 @@
+<h1>Listing timelines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Image url</th>
+      <th>Image date</th>
+      <th>Image source</th>
+      <th>Likes</th>
+      <th>Shares</th>
+      <th>Retweets</th>
+      <th>Number of comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timelines.each do |timeline| %>
+      <tr>
+        <td><%= timeline.user %></td>
+        <td><%= timeline.image_url %></td>
+        <td><%= timeline.image_date %></td>
+        <td><%= timeline.image_source %></td>
+        <td><%= timeline.likes %></td>
+        <td><%= timeline.shares %></td>
+        <td><%= timeline.retweets %></td>
+        <td><%= timeline.number_of_comments %></td>
+        <td><%= link_to 'Show', timeline %></td>
+        <td><%= link_to 'Edit', edit_timeline_path(timeline) %></td>
+        <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timeline', new_timeline_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :timelines
+
   root 'welcome#home'
 
   get 'welcome/home'

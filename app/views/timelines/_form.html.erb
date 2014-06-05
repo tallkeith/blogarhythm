@@ -1,0 +1,49 @@
+<%= form_for(@timeline) do |f| %>
+  <% if @timeline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timeline.errors.count, "error") %> prohibited this timeline from being saved:</h2>
+
+      <ul>
+      <% @timeline.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :image_date %><br>
+    <%= f.date_select :image_date %>
+  </div>
+  <div class="field">
+    <%= f.label :image_source %><br>
+    <%= f.text_field :image_source %>
+  </div>
+  <div class="field">
+    <%= f.label :likes %><br>
+    <%= f.number_field :likes %>
+  </div>
+  <div class="field">
+    <%= f.label :shares %><br>
+    <%= f.number_field :shares %>
+  </div>
+  <div class="field">
+    <%= f.label :retweets %><br>
+    <%= f.number_field :retweets %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_comments %><br>
+    <%= f.number_field :number_of_comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
