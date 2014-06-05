@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :timelines
+  
 
   root 'welcome#home'
 
   get 'welcome/home'
 
   get 'welcome/about'
+
+  resources :timelines
   
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
